@@ -17,8 +17,8 @@ const LogIn = () => {
         }
     }
     `;
-    const [loginUser, { data }] = useMutation(LOGIN_USER);
-    console.log("data: ", data);
+    const [loginUser] = useMutation(LOGIN_USER);
+    
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
@@ -27,7 +27,6 @@ const LogIn = () => {
 
         loginUser({ variables: { signInInput: { email, password } } })
             .then(response => {
-                console.log('Login successful:', response.data.signInUser.token);
                 localStorage.setItem('token', response.data.signInUser.token);
                 navigate('/');
             })

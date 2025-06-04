@@ -12,7 +12,6 @@ export const userResolvers = {
     Mutation: {
         addUser: async (_, { userInput }) => {
             try {
-                console.log("Adding user:", userInput);
                 // Check if the user already exists
                 const existingUser = await User.findOne({ email: userInput.email });
                 if (existingUser) {

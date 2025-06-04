@@ -29,7 +29,6 @@ const SignUp = () => {
 
         addUser({ variables: { userInput: { name, email, password } } })
             .then(response => {
-                console.log('User added:', response.data.addUser);
                 navigate('/login');
             })
             .catch(error => {
